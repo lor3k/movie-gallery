@@ -1,0 +1,10 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+    font-family: Roboto, sans-serif;
+}
+
+iframe{
+    border: 1px solid black;
+}
