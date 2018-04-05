@@ -1,8 +1,73 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.movieIdInput{
+    min-width: 200px;
+}
+
+.card{
+    width: 20vw;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.space{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxContent{
+    font-size: 0.8em;
+    color: grey;
+}
+
+#viewCountsIcon, #likeCountsIcon{
+    line-height: 1em;
+    font-size: 1em;
+    height: 1em;
+    width: 1em;
+}
+
+.toolbar, .paginator{
+    margin: 10px 0;
+}
+
+.actionButtons{
+    display:flex;
+    justify-content: space-evenly
+}
+
+.icon {
+    padding: 0 0px;
+}
 
 *{
-    font-family: Roboto, sans-serif;
+    font-family: Montserrat, sans-serif;
+}
+
+h1{
+    text-align: center;
 }
 
 iframe{

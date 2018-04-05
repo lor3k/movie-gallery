@@ -6,17 +6,88 @@
   </mat-list>
 </div> -->
 
+<!-- @COMPONENT TOOLBAR -->
+
+<mat-toolbar class="toolbar">
+	<mat-toolbar-row>
+		<span>
+			<mat-form-field class="movieIdInput">
+				<input matInput placeholder="Add movie link or id...">
+			</mat-form-field>
+			<button mat-button>
+				<mat-icon>add_box</mat-icon>
+			</button>
+			<button mat-button>
+				<mat-icon>assignment</mat-icon>
+			</button>
+		</span>
+		<span class="spacer"></span>
+		<span>
+			<button mat-button>
+				<mat-icon>favorite</mat-icon>
+			</button>
+			<button mat-button>
+				<mat-icon>delete_sweep</mat-icon>
+			</button>
+		</span>
+	</mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar class="paginator">
+	<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 50, 100]">
+	</mat-paginator>
+	<span class="spacer"></span>
+	<span>
+		<button mat-button>
+			<mat-icon>sort</mat-icon>
+		</button>
+		<button mat-button>
+			<mat-icon>view_list</mat-icon>
+		</button>
+		<button mat-button>
+			<mat-icon>view_module</mat-icon>
+		</button>
+	</span>
+</mat-toolbar>
+
+<!-- @COMPONENT GRID -->
+
 <mat-grid-list role="list" cols=3 gutterSize="10" *ngIf="grid">
-  <mat-grid-tile role="listitem" *ngFor="let movie of movies; let i=index">
-    <div>
-      <div>
-        <iframe [src]="prefix+movie['id'] | safe"></iframe>
-      </div>
-      <div>
-        <div>{{movie.snippet.title}}</div>
-        <div>{{movie.statistics.viewCount}}</div>
-        <div>{{movie.statistics.likeCount}}</div>
-      </div>
-    </div>
-  </mat-grid-tile>
+	<mat-grid-tile role="listitem" *ngFor="let movie of movies; let i=index">
+		<mat-card class="card">
+			<mat-card-header>
+				<mat-card-title>{{movie.snippet.title}}</mat-card-title>
+			</mat-card-header>
+			<mat-card-content class="boxContent">
+				<div>
+					Added: Thu Apr 05 2018 15:01:35
+				</div>
+				<iframe [src]="prefix+movie['id']+suffix | safe" class="card"></iframe>
+				<div class="space">
+					<div>
+						<mat-icon id="viewCountsIcon">visibility</mat-icon>
+						{{movie.statistics.viewCount}}
+					</div>
+					<div>
+						<mat-icon id="likeCountsIcon">thumb_up</mat-icon>
+						{{movie.statistics.likeCount}}
+					</div>
+				</div>
+			</mat-card-content>
+			<mat-card-actions>
+				<div class="actionButtons">
+					<button mat-button>
+						<mat-icon>play_circle_filled</mat-icon>
+					</button>
+					<button mat-button>
+						<mat-icon>favorite</mat-icon>
+					</button>
+					<button mat-button>
+						<mat-icon>delete</mat-icon>
+					</button>
+				</div>
+			</mat-card-actions>
+		</mat-card>
+	</mat-grid-tile>
 </mat-grid-list>
+
+<!-- <iframe src="https://player.vimeo.com/video/197080514"></iframe> -->

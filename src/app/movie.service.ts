@@ -8,7 +8,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class MovieService {
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient
+  ) { }
 
   moviesList = [
     'odWxQ5eEnfE',
@@ -22,9 +23,13 @@ export class MovieService {
     'QK8mJJJvaes'
   ];
 
+  // todo - vimeo videos
+
   prefix = `https://www.googleapis.com/youtube/v3/videos?id=`;
   key = `&key=AIzaSyD4DtKg_N2uJ0S059-zDB-PFpX9l1AqAd0`;
   suffix = `&part=snippet,statistics&fields=items(id,snippet(title),statistics(viewCount,likeCount))`;
+
+  
 
   moviesDataJSON() {
     return this.http.get(this.prefix + this.moviesList.join(',') + this.key + this.suffix);
