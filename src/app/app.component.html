@@ -51,43 +51,41 @@
 
 <!-- @COMPONENT GRID -->
 
-<mat-grid-list role="list" cols=3 gutterSize="10" *ngIf="grid">
-	<mat-grid-tile role="listitem" *ngFor="let movie of movies; let i=index">
-		<mat-card class="card">
-			<mat-card-header>
-				<mat-card-title>{{movie.snippet.title}}</mat-card-title>
-			</mat-card-header>
-			<mat-card-content class="boxContent">
+<div class="flexGrid" *ngIf="grid">
+	<mat-card class="card" *ngFor="let movie of movies">
+		<mat-card-header>
+			<mat-card-title>{{movie.snippet.title}}</mat-card-title>
+		</mat-card-header>
+		<mat-card-content class="boxContent">
+			<div>
+				Added: Thu Apr 05 2018 15:01:35
+			</div>
+			<iframe [src]="prefix+movie['id']+suffix | safe" class="iframe"></iframe>
+			<div class="space">
 				<div>
-					Added: Thu Apr 05 2018 15:01:35
+					<mat-icon id="viewCountsIcon">visibility</mat-icon>
+					{{movie.statistics.viewCount}}
 				</div>
-				<iframe [src]="prefix+movie['id']+suffix | safe" class="card"></iframe>
-				<div class="space">
-					<div>
-						<mat-icon id="viewCountsIcon">visibility</mat-icon>
-						{{movie.statistics.viewCount}}
-					</div>
-					<div>
-						<mat-icon id="likeCountsIcon">thumb_up</mat-icon>
-						{{movie.statistics.likeCount}}
-					</div>
+				<div>
+					<mat-icon id="likeCountsIcon">thumb_up</mat-icon>
+					{{movie.statistics.likeCount}}
 				</div>
-			</mat-card-content>
-			<mat-card-actions>
-				<div class="actionButtons">
-					<button mat-button>
-						<mat-icon>play_circle_filled</mat-icon>
-					</button>
-					<button mat-button>
-						<mat-icon>favorite</mat-icon>
-					</button>
-					<button mat-button>
-						<mat-icon>delete</mat-icon>
-					</button>
-				</div>
-			</mat-card-actions>
-		</mat-card>
-	</mat-grid-tile>
-</mat-grid-list>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<div class="actionButtons">
+				<button mat-button>
+					<mat-icon>play_circle_filled</mat-icon>
+				</button>
+				<button mat-button>
+					<mat-icon>favorite</mat-icon>
+				</button>
+				<button mat-button>
+					<mat-icon>delete</mat-icon>
+				</button>
+			</div>
+		</mat-card-actions>
+	</mat-card>
+</div>
 
 <!-- <iframe src="https://player.vimeo.com/video/197080514"></iframe> -->

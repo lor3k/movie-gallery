@@ -19,12 +19,29 @@
     font-feature-settings: 'liga';
 }
 
+.flexGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 .movieIdInput{
     min-width: 200px;
 }
 
 .card{
+    margin: 10px;
     width: 20vw;
+    min-width: 248px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.iframe{
+    min-width: 200px;
+    width: 100%;
 }
 
 .spacer {
