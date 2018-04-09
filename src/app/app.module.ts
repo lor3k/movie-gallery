@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { SafePipe } from './safe.pipe';
+import { DatePipe } from '@angular/common';
 
 import { MovieService } from './movie.service'
 
@@ -34,11 +35,11 @@ import { MovieService } from './movie.service'
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     MovieService,
-    { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'auto' } }
   ],
   bootstrap: [AppComponent]
 })

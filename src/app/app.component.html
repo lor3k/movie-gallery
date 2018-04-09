@@ -54,21 +54,21 @@
 <div class="flexGrid" *ngIf="grid">
 	<mat-card class="card" *ngFor="let movie of movies">
 		<mat-card-header>
-			<mat-card-title>{{movie.snippet.title}}</mat-card-title>
+			<mat-card-title>{{movie.title}}</mat-card-title>
 		</mat-card-header>
 		<mat-card-content class="boxContent">
 			<div>
-				Added: Thu Apr 05 2018 15:01:35
+				{{movie['addedDate']}}
 			</div>
-			<iframe [src]="prefix+movie['id']+suffix | safe" class="iframe"></iframe>
+			<iframe [src]="getMovieSrc(movie) | safe" class="iframe"></iframe>
 			<div class="space">
 				<div>
 					<mat-icon id="viewCountsIcon">visibility</mat-icon>
-					{{movie.statistics.viewCount}}
+					{{movie.viewCount}}
 				</div>
 				<div>
 					<mat-icon id="likeCountsIcon">thumb_up</mat-icon>
-					{{movie.statistics.likeCount}}
+					{{movie.likeCount}}
 				</div>
 			</div>
 		</mat-card-content>
