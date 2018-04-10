@@ -12,20 +12,22 @@ export class MovieService {
 		private http: HttpClient
 	) { }
 
-	moviesList = [
+	hardCodedMoviesList = [
 		'odWxQ5eEnfE',
 		'wO_lA6hV1Ag',
-		'nOubjLM9Cbc',
-		'v4pi1LxuDHc',
-		'2zNSgSzhBfM',
-		'JaAWdljhD5o',
-		'IELSg25_6Rg',
-		'QK8mJJJvaes',
-		'262351620',
-		'54348266',
+		// 'nOubjLM9Cbc',
+		// 'v4pi1LxuDHc',
+		// '262351620',
+		// '2zNSgSzhBfM',
+		// 'JaAWdljhD5o',
+		// 'IELSg25_6Rg',
+		// 'QK8mJJJvaes',
+		// '54348266',
 		'167054481',
 		'136765930'
 	];
+
+	moviesList: string[] = [];
 
 	// vimeo api
 	vimeoPrefix = `https://vimeo.com/api/v2/video/`
@@ -35,6 +37,17 @@ export class MovieService {
 	ytKey = `&key=AIzaSyD4DtKg_N2uJ0S059-zDB-PFpX9l1AqAd0`;
 	ytSuffix = `&part=snippet,statistics&fields=items(id,snippet(title),statistics(viewCount,likeCount))`;
 
+	addMovieId(movieId: string): void {
+		localStorage.setItem('moviesId', `${this.moviesList.concat(movieId)}`);
+	}
+
+	setHardCodedMoviesList(): void {
+		localStorage.setItem('moviesId', `${this.hardCodedMoviesList}`);
+	}
+
+	getMoviesIds(): void {
+		this.moviesList = localStorage.getItem('moviesId').split(',');
+	}
 
 	ytMoviesDataJSON(): Observable<any> {
 		return this.http.get(this.ytPrefix + this.moviesList.filter(movieId => !+movieId).join(',') + this.ytKey + this.ytSuffix);

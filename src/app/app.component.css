@@ -1,6 +1,14 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+*{
+    font-family: Montserrat, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -39,10 +47,11 @@
     justify-content: space-between;
 }
 
-.iframe{
+iframe{
     min-width: 200px;
     width: 100%;
     background-color: #000000;
+    border: 1px solid black;
 }
 
 .spacer {
@@ -78,16 +87,4 @@
 
 .icon {
     padding: 0 0px;
-}
-
-*{
-    font-family: Montserrat, sans-serif;
-}
-
-h1{
-    text-align: center;
-}
-
-iframe{
-    border: 1px solid black;
 }

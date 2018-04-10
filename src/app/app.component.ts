@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 	constructor(private movieService: MovieService) { }
 
 	getMovies(): void {
+		this.movieService.getMoviesIds();
 		this.movieService.ytMoviesDataJSON()
 			.subscribe(moviesData => {
 				moviesData['items'].forEach(movie => {
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
 				})
 			})
 		this.movieService.vimeoMoviesDataJSON()
-			.then(dataArr => dataArr.map(res => res.json())) 
+			.then(dataArr => dataArr.map(res => res.json()))
 			.then(jsonArr => {
 				jsonArr.forEach(moviePromise => {
 					moviePromise.then(res => res[0]).then(movie => {
@@ -40,6 +41,12 @@ export class AppComponent implements OnInit {
 					})
 				})
 			})
+		console.log(this.movies)
+	}
+
+	addMovie(movieLinkOrId: string): void {
+		let movieId = movieLinkOrId.split(/\=|\//).slice(-1)[0];
+		this.movieService.addMovieId(movieId);
 	}
 
 	getMovieSrc(movie): string {
@@ -59,5 +66,4 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.getMovies();
 	}
-
 }

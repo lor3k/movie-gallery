@@ -12,9 +12,9 @@
 	<mat-toolbar-row>
 		<span>
 			<mat-form-field class="movieIdInput">
-				<input matInput placeholder="Add movie link or id...">
+				<input matInput #inputMovieId placeholder="Add movie link or id...">
 			</mat-form-field>
-			<button mat-button>
+			<button mat-button (click)="addMovie(inputMovieId.value)" color="primary">
 				<mat-icon>add_box</mat-icon>
 			</button>
 			<button mat-button>
@@ -23,7 +23,7 @@
 		</span>
 		<span class="spacer"></span>
 		<span>
-			<button mat-button>
+			<button mat-button color="warn">
 				<mat-icon>favorite</mat-icon>
 			</button>
 			<button mat-button>
@@ -60,7 +60,7 @@
 			<div>
 				{{movie['addedDate']}}
 			</div>
-			<iframe [src]="getMovieSrc(movie) | safe" class="iframe"></iframe>
+			<iframe [src]="getMovieSrc(movie) | safe"></iframe>
 			<div class="space">
 				<div>
 					<mat-icon id="viewCountsIcon">visibility</mat-icon>
