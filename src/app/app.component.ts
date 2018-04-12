@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MovieService } from './movie.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { MovieService } from './movie.service';
 })
 export class AppComponent implements OnInit {
 
-	private movies = [];
-
 	constructor(private movieService: MovieService) { }
+
+	movies = [];
 
 	getMovies(): void {
 		this.movieService.getMoviesIds();
@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
 					})
 				})
 			})
-		console.log(this.movies)
 	}
 
 	addMovie(movieLinkOrId: string): void {
